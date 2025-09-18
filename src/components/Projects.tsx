@@ -8,10 +8,12 @@ const Projects: React.FC = () => {
   const { theme } = useTheme();
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [showVideo, setShowVideo] = useState(false);
 
   const projectImageRanges = {
     1: { start: 13, end: 15 },
-    2: { start: 1, end: 10 }
+    2: { start: 1, end: 10 },
+    3: { start: 1, end: 10 }
   };
 
  const getProjectImages = (projectId: number) => {
@@ -43,11 +45,13 @@ const Projects: React.FC = () => {
   const openProject = (id: number) => {
     setSelectedProject(id);
     setCurrentImageIndex(0);
+    setShowVideo(false);
   };
 
   const closeProject = () => {
     setSelectedProject(null);
     setCurrentImageIndex(0);
+    setShowVideo(false);
   };
 
   const nextImage = () => {
@@ -99,7 +103,7 @@ const Projects: React.FC = () => {
                   <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <button
                       onClick={() => openProject(project.id)}
-                      className="bg-blue-600 text-white px-6 py-2 rounded-full transform -translate-y-10 group-hover:translate-y-0 transition-transform duration-300"
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full transform -translate-y-10 group-hover:translate-y-0 transition-all duration-300 font-medium shadow-lg"
                     >
                       Voir détails
                     </button>
@@ -125,7 +129,7 @@ const Projects: React.FC = () => {
                   <div className="flex justify-between items-center">
                     <button
                       onClick={() => openProject(project.id)}
-                      className="text-blue-600 hover:text-blue-800 font-medium transition"
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg"
                     >
                       Voir détails
                     </button>
@@ -167,16 +171,43 @@ const Projects: React.FC = () => {
                 <div className="p-6">
                   <div className="flex justify-between items-center mb-6">
                     <h3 className="text-2xl font-bold">{project.title}</h3>
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      onClick={closeProject}
-                      className="text-gray-400 hover:text-gray-600 transition"
-                    >
-                      <X size={24} />
-                    </motion.button>
+                    <div className="flex items-center space-x-4">
+                      {project.videoUrl && (
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          onClick={() => setShowVideo(!showVideo)}
+                          className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                            showVideo
+                              ? 'bg-red-600 hover:bg-red-700 text-white'
+                              : 'bg-green-600 hover:bg-green-700 text-white'
+                          }`}
+                        >
+                          {showVideo ? 'Voir Images' : 'Voir Vidéo'}
+                        </motion.button>
+                      )}
+                      <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        onClick={closeProject}
+                        className="text-gray-400 hover:text-gray-600 transition"
+                      >
+                        <X size={24} />
+                      </motion.button>
+                    </div>
                   </div>
 
                   <div className="mb-6 relative">
+                    {showVideo && project.videoUrl ? (
+                      <div className="relative h-64 md:h-96 overflow-hidden rounded-lg bg-black">
+                        <video
+                          controls
+                          className="w-full h-full object-contain"
+                          poster={currentProjectImages[0]}
+                        >
+                          <source src={project.videoUrl} type="video/mp4" />
+                          Votre navigateur ne supporte pas la lecture vidéo.
+                        </video>
+                      </div>
+                    ) : (
                     <div className="relative h-64 overflow-hidden rounded-lg">
                       <AnimatePresence mode="wait">
                         <motion.img
@@ -220,6 +251,7 @@ const Projects: React.FC = () => {
                         />
                       ))}
                     </div>
+                    )}
                   </div>
 
                   <motion.div

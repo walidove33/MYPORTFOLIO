@@ -5,6 +5,7 @@ export interface Project {
   technologies: string[];
   repoUrl?: string;
   imageUrl?: string;
+  videoUrl?: string;
   features: string[];
 }
 

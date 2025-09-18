@@ -147,20 +147,115 @@ body {
 
 /* Button styles */
 .btn-primary {
-  @apply px-6 py-3 bg-indigo-600 text-white rounded-full font-medium 
-         transition-all duration-300 hover:bg-indigo-700 hover:shadow-lg 
-         transform hover:-translate-y-1 focus:outline-none focus:ring-2 
-         focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900;
+  @apply px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white 
+         rounded-full font-semibold text-lg transition-all duration-300 
+         hover:from-indigo-700 hover:to-purple-700 hover:shadow-2xl 
+         transform hover:-translate-y-2 hover:scale-105 focus:outline-none 
+         focus:ring-4 focus:ring-indigo-500/50 focus:ring-offset-2 
+         dark:focus:ring-offset-gray-900 shadow-lg;
 }
 
 .btn-secondary {
-  @apply px-6 py-3 border-2 border-indigo-600 text-indigo-600 rounded-full 
-         font-medium transition-all duration-300 hover:bg-indigo-600 
-         hover:text-white hover:shadow-lg transform hover:-translate-y-1 
-         focus:outline-none focus:ring-2 focus:ring-indigo-500 
-         focus:ring-offset-2 dark:text-indigo-400 dark:border-indigo-400 
-         dark:hover:bg-indigo-400 dark:hover:text-white 
-         dark:focus:ring-offset-gray-900;
+  @apply px-8 py-4 border-2 border-indigo-600 text-indigo-600 rounded-full 
+         font-semibold text-lg transition-all duration-300 hover:bg-gradient-to-r 
+         hover:from-indigo-600 hover:to-purple-600 hover:text-white hover:shadow-2xl 
+         transform hover:-translate-y-2 hover:scale-105 focus:outline-none 
+         focus:ring-4 focus:ring-indigo-500/50 focus:ring-offset-2 
+         dark:text-indigo-400 dark:border-indigo-400 dark:hover:from-indigo-400 
+         dark:hover:to-purple-400 dark:hover:text-white dark:focus:ring-offset-gray-900 
+         shadow-lg backdrop-blur-sm;
+}
+
+/* Professional card styles */
+.professional-card {
+  @apply bg-white dark:bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl 
+         transition-all duration-500 transform hover:-translate-y-2 
+         border border-gray-100 dark:border-gray-700 overflow-hidden
+         backdrop-blur-sm bg-opacity-90 dark:bg-opacity-90;
+}
+
+.professional-card::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 
+         opacity-0 transition-opacity duration-500;
+}
+
+.professional-card:hover::before {
+  @apply opacity-100;
+}
+
+/* Enhanced gradient backgrounds */
+.gradient-bg-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-bg-secondary {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.gradient-bg-accent {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* Professional animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slideInUp {
+  animation: slideInUp 0.8s ease-out forwards;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+/* Enhanced skill bars */
+.skill-bar {
+  @apply relative overflow-hidden rounded-full h-3 bg-gray-200 dark:bg-gray-700;
+}
+
+.skill-progress {
+  @apply h-full rounded-full transition-all duration-1000 ease-out
+         bg-gradient-to-r from-blue-500 to-purple-600 relative;
+}
+
+.skill-progress::after {
+  content: '';
+  @apply absolute inset-0 bg-white/20 animate-pulse rounded-full;
 }
 
 /* Section styles */

@@ -28,30 +28,29 @@ const Skills: React.FC = () => {
           {skillsData.map((category, index) => (
             <div
               key={index}
-              className={`rounded-lg p-6 transition-all duration-300 hover:shadow-lg ${
+              className={`professional-card relative p-8 transition-all duration-500 hover:shadow-2xl ${
                 theme === 'dark'
-                  ? 'bg-gray-800 text-gray-200 shadow-gray-700'
-                  : 'bg-gray-50 text-gray-800 shadow-md'
+                  ? 'text-gray-200'
+                  : 'text-gray-800'
               }`}
             >
-              <h3 className="text-xl font-semibold mb-6 pb-2 border-b-2 border-blue-600 inline-block">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-600"></div>
+              <h3 className="text-2xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                 {category.category}
               </h3>
 
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex}>
-                    <div className="flex justify-between mb-1">
-                      <span>{skill.name}</span>
-                      <span className="text-sm">{skill.level * 20}%</span>
+                    <div className="flex justify-between mb-3">
+                      <span className="font-semibold text-lg">{skill.name}</span>
+                      <span className="text-sm font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                        {skill.level * 20}%
+                      </span>
                     </div>
-                    <div
-                      className={`w-full rounded-full h-2 ${
-                        theme === 'dark' ? 'bg-gray-700' : 'bg-gray-200'
-                      }`}
-                    >
+                    <div className="skill-bar">
                       <div
-                        className="bg-blue-600 h-2 rounded-full transition-all duration-1000"
+                        className="skill-progress"
                         style={{ width: `${skill.level * 20}%` }}
                       />
                     </div>

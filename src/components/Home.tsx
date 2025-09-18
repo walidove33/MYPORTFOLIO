@@ -88,15 +88,26 @@ const Home: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-xl md:text-2xl font-medium mb-6 text-blue-200"
+              className="text-xl md:text-2xl font-medium mb-4 text-blue-200"
             >
               Élève ingénieur Full-Stack – Java | Angular | Python
             </motion.h2>
 
+            {/* Badge recherche de stage */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="inline-flex items-center px-4 py-2 bg-green-500/20 backdrop-blur-sm rounded-full text-green-100 text-sm font-medium mb-6 border border-green-500/30"
+            >
+              <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+              À la recherche d'un stage PFE 2026
+            </motion.div>
+
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
+              transition={{ delay: 0.7 }}
               className="text-lg md:text-xl mb-8 max-w-xl mx-auto md:mx-0"
             >
               Passionné par le développement web sécurisé, l'IA et les interfaces utilisateurs modernes.
@@ -105,7 +116,7 @@ const Home: React.FC = () => {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
+              transition={{ delay: 0.9 }}
               className="flex flex-wrap gap-4 justify-center md:justify-start"
             >
               <motion.button 

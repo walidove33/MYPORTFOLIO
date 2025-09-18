@@ -50,10 +50,11 @@ const Contact: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* Contact Info */}
             <div
-              className={`rounded-lg shadow-md p-8 ${
+              className={`professional-card relative p-10 ${
                 theme === 'dark' ? 'bg-gray-800' : 'bg-gray-50'
               }`}
             >
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 to-purple-600"></div>
               <h3
                 className={`text-2xl font-semibold mb-6 ${
                   theme === 'dark' ? 'text-white' : 'text-gray-800'
@@ -71,9 +72,15 @@ const Contact: React.FC = () => {
                 me contacter !
               </p>
 
+              {/* Badge disponibilité */}
+              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full text-sm font-semibold mb-8 shadow-lg">
+                <div className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></div>
+                Disponible pour stage PFE 2026
+              </div>
+
               <div className="space-y-6">
                 {/* Email */}
-                <div className="flex items-start">
+                <div className="flex items-start p-4 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-600 transition-all duration-300 hover:shadow-md">
                   <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 flex-shrink-0">
                     <Mail className="text-blue-600" />
                   </div>
@@ -97,7 +104,7 @@ const Contact: React.FC = () => {
                 </div>
 
                 {/* Phone */}
-                <div className="flex items-start">
+                <div className="flex items-start p-4 rounded-xl bg-gradient-to-r from-green-50 to-emerald-50 dark:from-gray-700 dark:to-gray-600 transition-all duration-300 hover:shadow-md">
                   <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 flex-shrink-0">
                     <Phone className="text-blue-600" />
                   </div>
@@ -121,7 +128,7 @@ const Contact: React.FC = () => {
                 </div>
 
                 {/* Location */}
-                <div className="flex items-start">
+                <div className="flex items-start p-4 rounded-xl bg-gradient-to-r from-purple-50 to-pink-50 dark:from-gray-700 dark:to-gray-600 transition-all duration-300 hover:shadow-md">
                   <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 flex-shrink-0">
                     <MapPin className="text-blue-600" />
                   </div>
@@ -147,10 +154,11 @@ const Contact: React.FC = () => {
 
             {/* Contact Form */}
             <div
-              className={`rounded-lg shadow-md p-8 ${
+              className={`professional-card relative p-10 ${
                 theme === 'dark' ? 'bg-gray-800' : 'bg-gray-50'
               }`}
             >
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-500 to-pink-600"></div>
               <h3
                 className={`text-2xl font-semibold mb-6 ${
                   theme === 'dark' ? 'text-white' : 'text-gray-800'
@@ -212,7 +220,7 @@ const Contact: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-700 transition"
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-8 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   Envoyer le message
                 </button>

@@ -65,6 +65,20 @@ const Header: React.FC = () => {
           <span className="cursor-pointer" onClick={() => scrollToSection('home')}>WB</span>
         </motion.h1>
 
+        {/* Badge recherche de stage */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className={`hidden lg:flex items-center px-3 py-1 rounded-full text-xs font-medium ${
+            scrolled
+              ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
+              : 'bg-green-500/20 text-green-100 backdrop-blur-sm'
+          }`}
+        >
+          <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+          Recherche stage PFE 2026
+        </motion.div>
+
         <div className="hidden md:flex items-center space-x-8">
           <nav>
             <ul className="flex space-x-8">
