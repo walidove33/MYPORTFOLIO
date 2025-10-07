@@ -221,35 +221,35 @@ const Projects: React.FC = () => {
                           className="w-full h-full object-cover"
                         />
                       </AnimatePresence>
-                    </div>
 
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      onClick={prevImage}
-                      className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 p-2 rounded-full"
-                    >
-                      <ChevronLeft size={24} />
-                    </motion.button>
+                      <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        onClick={prevImage}
+                        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 p-2 rounded-full"
+                      >
+                        <ChevronLeft size={24} />
+                      </motion.button>
 
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      onClick={nextImage}
-                      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 p-2 rounded-full"
-                    >
-                      <ChevronRight size={24} />
-                    </motion.button>
+                      <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        onClick={nextImage}
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 p-2 rounded-full"
+                      >
+                        <ChevronRight size={24} />
+                      </motion.button>
 
-                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                      {currentProjectImages.map((_, index) => (
-                        <motion.button
-                          key={index}
-                          whileHover={{ scale: 1.2 }}
-                          onClick={() => setCurrentImageIndex(index)}
-                          className={`w-2 h-2 rounded-full ${
-                            currentImageIndex === index ? 'bg-blue-600' : 'bg-gray-400'
-                          }`}
-                        />
-                      ))}
+                      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                        {currentProjectImages.map((_, index) => (
+                          <motion.button
+                            key={index}
+                            whileHover={{ scale: 1.2 }}
+                            onClick={() => setCurrentImageIndex(index)}
+                            className={`w-2 h-2 rounded-full ${
+                              currentImageIndex === index ? 'bg-blue-600' : 'bg-gray-400'
+                            }`}
+                          />
+                        ))}
+                      </div>
                     </div>
                     )}
                   </div>
