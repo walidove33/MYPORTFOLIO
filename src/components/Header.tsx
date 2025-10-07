@@ -40,7 +40,16 @@ const Header: React.FC = () => {
     }
   };
 
-  const navItems = ['home', 'about', 'skills', 'projects', 'experience', 'education', 'cv', 'contact'];
+  const navItems = [
+    { id: 'home', label: 'Accueil' },
+    { id: 'about', label: 'À propos' },
+    { id: 'skills', label: 'Compétences' },
+    { id: 'projects', label: 'Projets' },
+    { id: 'experience', label: 'Expérience' },
+    { id: 'education', label: 'Formation' },
+    { id: 'cv', label: 'CV' },
+    { id: 'contact', label: 'Contact' }
+  ];
 
   return (
     <motion.header 
@@ -83,8 +92,8 @@ const Header: React.FC = () => {
           <nav>
             <ul className="flex space-x-8">
               {navItems.map((item, index) => (
-                <motion.li 
-                  key={item}
+                <motion.li
+                  key={item.id}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -92,14 +101,14 @@ const Header: React.FC = () => {
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() => scrollToSection(item)}
+                    onClick={() => scrollToSection(item.id)}
                     className={`text-sm uppercase tracking-wider font-medium transition-colors duration-300 ${
-                      scrolled 
-                        ? 'text-gray-700 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-400' 
+                      scrolled
+                        ? 'text-gray-700 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-400'
                         : 'text-white hover:text-blue-200'
                     }`}
                   >
-                    {item.charAt(0).toUpperCase() + item.slice(1)}
+                    {item.label}
                   </motion.button>
                 </motion.li>
               ))}
@@ -161,8 +170,8 @@ const Header: React.FC = () => {
           >
             <ul className="py-4">
               {navItems.map((item, index) => (
-                <motion.li 
-                  key={item} 
+                <motion.li
+                  key={item.id}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -170,10 +179,10 @@ const Header: React.FC = () => {
                 >
                   <motion.button
                     whileHover={{ x: 10 }}
-                    onClick={() => scrollToSection(item)}
+                    onClick={() => scrollToSection(item.id)}
                     className="text-gray-700 dark:text-gray-300 hover:text-blue-700 dark:hover:text-blue-400 block w-full text-left text-sm uppercase tracking-wider font-medium"
                   >
-                    {item.charAt(0).toUpperCase() + item.slice(1)}
+                    {item.label}
                   </motion.button>
                 </motion.li>
               ))}

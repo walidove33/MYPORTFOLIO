@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import profilImage from '../assets/profil.png';
 
@@ -14,18 +14,17 @@ const Home: React.FC = () => {
   const scrollToNext = () => scrollToSection('about');
 
   return (
-    <section 
-      id="home" 
-      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white overflow-hidden"
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white overflow-hidden"
     >
-      {/* Background & animation shapes */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute inset-0 bg-black opacity-60"></div>
         <div className="absolute inset-0 overflow-hidden">
           {[...Array(5)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute bg-white/10 rounded-full"
+              className="absolute bg-blue-500/10 rounded-full"
               style={{
                 width: Math.random() * 300 + 100,
                 height: Math.random() * 300 + 100,
@@ -48,124 +47,147 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* Content */}
       <div className="container mx-auto px-4 z-10">
-        <div className="flex flex-col md:flex-row items-center justify-around gap-8">
+        <div className="flex flex-col items-center text-center">
 
-          {/* Left Text Block */}
-          <motion.div 
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="w-full md:w-[45%] text-center md:text-left"
-          >
-            {/* WB Profile Tag */}
-            <motion.div 
-              whileHover={{ scale: 1.05 }} 
-              className="flex items-center space-x-2 cursor-pointer mb-6 justify-center md:justify-start"
-              onClick={() => scrollToSection('home')}
-            >
-              <img 
-                src={profilImage} 
-                alt="Profil" 
-                className="w-10 h-10 rounded-full object-cover border-2 border-blue-500"
-              />
-              <span className="font-bold text-xl md:text-2xl transition-colors duration-300 text-white">
-                WB
-              </span>
-            </motion.div>
-
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-4xl md:text-6xl font-bold mb-4 gradient-text"
-            >
-              Walid Benabbes
-            </motion.h1>
-
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-xl md:text-2xl font-medium mb-4 text-blue-200"
-            >
-              Élève ingénieur Full-Stack – Java | Angular | Python
-            </motion.h2>
-
-            {/* Badge recherche de stage */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="inline-flex items-center px-4 py-2 bg-green-500/20 backdrop-blur-sm rounded-full text-green-100 text-sm font-medium mb-6 border border-green-500/30"
-            >
-              <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-              À la recherche d'un stage PFE 2026
-            </motion.div>
-
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="text-lg md:text-xl mb-8 max-w-xl mx-auto md:mx-0"
-            >
-              Passionné par le développement web sécurisé, l'IA et les interfaces utilisateurs modernes.
-            </motion.p>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9 }}
-              className="flex flex-wrap gap-4 justify-center md:justify-start"
-            >
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection('contact')}
-                className="btn-primary"
-              >
-                Me contacter
-              </motion.button>
-
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection('projects')}
-                className="btn-secondary"
-              >
-                Voir mes projets
-              </motion.button>
-            </motion.div>
-          </motion.div>
-
-          {/* Right Image Block (balanced between center and end) */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
-            className="w-full md:w-[45%] flex justify-center"
+            className="mb-8"
           >
-            <motion.div 
-              animate={{ y: [-20, 20, -20] }}
+            <motion.div
+              animate={{ y: [-10, 10, -10] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-56 h-56 md:w-72 md:h-72"
+              className="relative w-48 h-48 md:w-64 md:h-64"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-2xl opacity-30 animate-pulse"></div>
-              <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/50 shadow-2xl">
-                <img src={profilImage} alt="Profil" className="object-cover w-full h-full" />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full blur-2xl opacity-40 animate-pulse"></div>
+              <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-blue-500/50 shadow-2xl">
+                <img src={profilImage} alt="Walid Benabbes" className="object-cover w-full h-full" />
               </div>
             </motion.div>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="text-5xl md:text-7xl font-bold mb-4"
+          >
+            Salut, je suis <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Walid Benabbes</span>
+          </motion.h1>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="text-2xl md:text-3xl font-medium mb-4 text-blue-300"
+          >
+            Ingénierie Informatique & Réseaux
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+            className="text-lg md:text-xl mb-6 max-w-2xl text-gray-300 leading-relaxed"
+          >
+            Futur ingénieur en informatique et réseaux, je me spécialise en Intelligence Artificielle, Machine Learning et développement Full-Stack. Passionné par la Data et l'IA, je développe des solutions innovantes.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+            className="flex items-center px-6 py-3 bg-gradient-to-r from-pink-500/20 to-rose-500/20 backdrop-blur-sm rounded-full text-pink-200 text-base font-medium mb-8 border border-pink-500/30"
+          >
+            <div className="w-3 h-3 bg-pink-400 rounded-full mr-3 animate-pulse"></div>
+            Recherche stage PFE 6 mois - Mars 2026 | IA, ML, Java Spring Boot
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1 }}
+            className="flex flex-wrap gap-4 justify-center mb-8"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(59, 130, 246, 0.5)" }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => scrollToSection('contact')}
+              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-full shadow-lg hover:shadow-blue-500/50 transition-all duration-300"
+            >
+              Me contacter
+            </motion.button>
+
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(59, 130, 246, 0.3)" }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => scrollToSection('projects')}
+              className="px-8 py-3 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-full border-2 border-white/20 hover:bg-white/20 transition-all duration-300"
+            >
+              Voir mes expériences
+            </motion.button>
+
+            <motion.a
+              whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(59, 130, 246, 0.3)" }}
+              whileTap={{ scale: 0.95 }}
+              href="/cv-walid-benabbes.pdf"
+              download
+              className="px-8 py-3 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-full border-2 border-white/20 hover:bg-white/20 transition-all duration-300 inline-flex items-center"
+            >
+              Télécharger mon CV
+            </motion.a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2 }}
+            className="flex gap-4"
+          >
+            <motion.a
+              whileHover={{ scale: 1.2, rotate: 5 }}
+              whileTap={{ scale: 0.9 }}
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-blue-600 hover:border-blue-600 transition-all duration-300"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={20} />
+            </motion.a>
+
+            <motion.a
+              whileHover={{ scale: 1.2, rotate: 5 }}
+              whileTap={{ scale: 0.9 }}
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-gray-700 hover:border-gray-700 transition-all duration-300"
+              aria-label="GitHub"
+            >
+              <Github size={20} />
+            </motion.a>
+
+            <motion.button
+              whileHover={{ scale: 1.2, rotate: 5 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => scrollToSection('contact')}
+              className="w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-cyan-600 hover:border-cyan-600 transition-all duration-300"
+              aria-label="Email"
+            >
+              <Mail size={20} />
+            </motion.button>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll Down Button */}
-      <motion.button 
+      <motion.button
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         onClick={scrollToNext}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white hover:text-blue-200 transition-colors duration-300"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white hover:text-blue-300 transition-colors duration-300"
         aria-label="Défiler vers le bas"
       >
         <ChevronDown size={32} />

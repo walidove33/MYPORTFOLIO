@@ -269,6 +269,20 @@ body {
 }
 
 .section-subtitle {
-  @apply text-lg text-gray-600 dark:text-gray-300 text-center mb-12 
+  @apply text-lg text-gray-600 dark:text-gray-300 text-center mb-12
          max-w-2xl mx-auto animate-slideUp animation-delay-200;
+}
+
+/* Shimmer animation for skill bars */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
 }
